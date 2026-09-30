@@ -70,6 +70,12 @@ app.post('/api/webhooks/github', async (req, res) => {
   const signature = req.headers['x-hub-signature-256'];
   const githubEvent = req.headers['x-github-event'] || 'workflow_run';
 
+  // Return 200 OK immediately for GitHub's initial ping event test
+  if (githubEvent === 'ping') {
+    console.log('[Webhook] Received GitHub ping test event');
+    return res.status(200).json({ message: 'GitHub Webhook ping received successfully' });
+  }
+
   const isValid = verifySignature(req.rawBody, signature, store.webhookSecret);
   if (!isValid) {
     console.warn('[Webhook] Rejected invalid HMAC signature');
@@ -89,6 +95,7 @@ app.post('/api/webhooks/github', async (req, res) => {
 
   return res.status(200).json({
     message: 'Webhook processed successfully',
+    event: githubEvent,
     run_id: result.run.run_id,
     status: result.run.status,
     clean_error: result.run.clean_error
