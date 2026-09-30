@@ -262,38 +262,54 @@ export const App: React.FC = () => {
       <main className="main-workspace">
         
         {/* Dynamic View: Dashboard vs Dedicated In-Site Alerts Page */}
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col justify-between h-full">
           {currentView === 'dashboard' ? (
-            <div className="space-y-6">
-              
-              {/* Dashboard Title & Subtitle */}
-              <div className="mb-6 pb-4 border-b border-[var(--border-color)]">
-                <h1 className="text-3xl font-extrabold tracking-tight text-[var(--text-primary)]">
-                  Dashboard
-                </h1>
-                <p className="text-sm font-normal text-[var(--text-secondary)] mt-1">
-                  Real-time pipeline health, GitHub action runs, and automated telemetry metrics.
-                </p>
-              </div>
-
-              {/* 3-Column Layout: Col 1 Repo Card (2.2fr) | Col 2 (3 Small Cards 1fr) | Col 3 (3 Small Cards 1fr) */}
-              <div className="dashboard-3col-kpi-grid items-stretch h-full">
+            <div className="flex-1 flex flex-col justify-between h-full space-y-6">
+              <div className="space-y-6">
                 
-                {/* Column 1: Repo Card */}
-                <div className="col-repo-card h-full">
-                  <RepoGrid
-                    repositories={filteredRepos}
-                    recentRuns={workflowRuns}
-                    searchQuery={searchQuery}
-                    setSearchQuery={setSearchQuery}
-                    onSelectRun={(run) => setSelectedRun(run)}
-                  />
+                {/* Dashboard Title & Subtitle */}
+                <div className="mb-6 pb-4 border-b border-[var(--border-color)]">
+                  <h1 className="text-3xl font-extrabold tracking-tight text-[var(--text-primary)]">
+                    Dashboard
+                  </h1>
+                  <p className="text-sm font-normal text-[var(--text-secondary)] mt-1">
+                    Real-time pipeline health, GitHub action runs, and automated telemetry metrics.
+                  </p>
                 </div>
 
-                {/* Columns 2 & 3: Modular KPI Card Grid */}
-                <KpiCardGrid metrics={metrics} />
+                {/* 3-Column Layout: Col 1 Repo Card (2.2fr) | Col 2 (3 Small Cards 1fr) | Col 3 (3 Small Cards 1fr) */}
+                <div className="dashboard-3col-kpi-grid items-stretch h-full">
+                  
+                  {/* Column 1: Repo Card */}
+                  <div className="col-repo-card h-full">
+                    <RepoGrid
+                      repositories={filteredRepos}
+                      recentRuns={workflowRuns}
+                      searchQuery={searchQuery}
+                      setSearchQuery={setSearchQuery}
+                      onSelectRun={(run) => setSelectedRun(run)}
+                    />
+                  </div>
 
+                  {/* Columns 2 & 3: Modular KPI Card Grid */}
+                  <KpiCardGrid metrics={metrics} />
+
+                </div>
               </div>
+
+              {/* Dashboard Footer anchored at bottom of Dashboard view only */}
+              <footer className="mt-auto pt-4 pb-4 border-t border-dashed border-[var(--border-color)] text-center text-xs text-[var(--text-secondary)] space-y-1">
+                <p className="font-semibold text-[var(--text-primary)]">
+                  &copy; 2026 Watcher. All pipelines accounted for. Zero broken builds, zero deployment headaches.
+                </p>
+                <p className="text-[11px] text-[var(--text-muted)]">
+                  Made by Taksheel Rawat
+                </p>
+                <p className="text-[11px] text-[var(--text-muted)]">
+                  Telemetry monitored by Watcher Engine
+                </p>
+              </footer>
+
             </div>
           ) : (
             /* Dedicated Row-Wise In-Site Alerts Page */
@@ -304,19 +320,6 @@ export const App: React.FC = () => {
             />
           )}
         </div>
-
-        {/* Dashboard Footer anchored at very bottom with dashed line directly above © 2026 Watcher */}
-        <footer className="mt-auto pt-4 pb-4 border-t border-dashed border-[var(--border-color)] text-center text-xs text-[var(--text-secondary)] space-y-1">
-          <p className="font-semibold text-[var(--text-primary)]">
-            &copy; 2026 Watcher. All pipelines accounted for. Zero broken builds, zero deployment headaches.
-          </p>
-          <p className="text-[11px] text-[var(--text-muted)]">
-            Made by Taksheel Rawat
-          </p>
-          <p className="text-[11px] text-[var(--text-muted)]">
-            Telemetry monitored by Watcher Engine
-          </p>
-        </footer>
 
       </main>
 
