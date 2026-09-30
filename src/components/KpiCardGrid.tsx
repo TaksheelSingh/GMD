@@ -35,7 +35,7 @@ export const KpiCardGrid: React.FC<KpiCardGridProps> = ({ metrics }) => {
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-extrabold text-[#FF453A]">{metrics.failedRepos}</span>
-            <span className="text-[11px] font-mono text-slate-400">REPOS</span>
+            <span className="text-[11px] font-mono text-[var(--text-secondary)]">REPOS</span>
           </div>
           <div className="flex items-center justify-between text-[11px] text-rose-400/80 mt-2 font-mono pt-1 border-t border-[#FF453A]/20">
             <span>Immediate Action</span>

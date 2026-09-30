@@ -46,7 +46,7 @@ export const RepoGrid: React.FC<RepoGridProps> = ({
             placeholder="Search repos, steps..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-8 pr-7 py-1.5 bg-black/10 dark:bg-white/5 border border-[var(--border-color)] rounded-xl text-xs text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:border-[#0A84FF] font-sans"
+            className="w-full pl-8 pr-7 py-1.5 bg-[var(--bg-card-inner)] border border-[var(--border-color)] rounded-xl text-xs text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:border-[#0A84FF] font-sans"
           />
           {searchQuery && (
             <button
@@ -130,7 +130,7 @@ export const RepoGrid: React.FC<RepoGridProps> = ({
                           {repo.name}
                         </div>
                         <div className="flex items-center gap-1 text-[10px] text-[var(--text-secondary)] mt-0.5">
-                          <GitBranch className="w-2.5 h-2.5 text-slate-400" />
+                          <GitBranch className="w-2.5 h-2.5 text-[var(--text-secondary)]" />
                           <span>{repo.default_branch}</span>
                         </div>
                       </td>

@@ -28,30 +28,32 @@ export const InSiteAlertsPage: React.FC<InSiteAlertsPageProps> = ({
     <div className="space-y-6">
       
       {/* Page Header (Matching Dashboard Header Architecture) */}
-      <div className="flex items-center justify-between mb-6 pb-4 border-b border-[var(--border-color)]">
-        <div>
-          <h1 className="text-3xl font-extrabold text-[var(--text-primary)] tracking-tight flex items-center gap-3">
-            <span>In-Site Telemetry Alerts</span>
-            {unreadCount > 0 && (
-              <span className="text-xs bg-[#FF453A] text-white font-bold px-2.5 py-0.5 rounded-full">
-                {unreadCount} Unread
-              </span>
-            )}
-          </h1>
-          <p className="text-sm text-[var(--text-secondary)] mt-1 font-normal">
-            Site-only live operational alert feed (No external Slack or email dependencies)
-          </p>
-        </div>
+      <div className="mb-6 pb-4 border-b border-[var(--border-color)]">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-extrabold tracking-tight text-[var(--text-primary)] flex items-center gap-3">
+              <span>In-Site Telemetry Alerts</span>
+              {unreadCount > 0 && (
+                <span className="text-xs bg-[#FF453A] text-white font-bold px-2.5 py-0.5 rounded-full">
+                  {unreadCount} Unread
+                </span>
+              )}
+            </h1>
+            <p className="text-sm font-normal text-[var(--text-secondary)] mt-1">
+              Site-only live operational alert feed (No external Slack or email dependencies)
+            </p>
+          </div>
 
-        {unreadCount > 0 && (
-          <button
-            onClick={onMarkAllAsRead}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[var(--bg-card-inner)] hover:border-[var(--border-hover)] border border-[var(--border-color)] text-xs font-semibold text-[var(--text-primary)] transition-all cursor-pointer"
-          >
-            <CheckCheck className="w-4 h-4 text-[#30D158]" />
-            <span>Mark All as Read</span>
-          </button>
-        )}
+          {unreadCount > 0 && (
+            <button
+              onClick={onMarkAllAsRead}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[var(--bg-card-inner)] hover:border-[var(--border-hover)] border border-[var(--border-color)] text-xs font-semibold text-[var(--text-primary)] transition-all cursor-pointer"
+            >
+              <CheckCheck className="w-4 h-4 text-[#30D158]" />
+              <span>Mark All as Read</span>
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Row-Wise Data Table Container with Horizontal & Vertical Scroll */}
@@ -140,7 +142,7 @@ export const InSiteAlertsPage: React.FC<InSiteAlertsPageProps> = ({
                           <User className="w-3 h-3 text-[var(--text-muted)]" />
                           <span>@{alert.author || 'dev'}</span>
                           {alert.commit_sha && (
-                            <span className="bg-black/10 dark:bg-white/10 text-current px-1 py-0.5 rounded text-[10px]">
+                            <span className="bg-[var(--bg-card-inner)] text-[var(--text-primary)] px-1 py-0.5 rounded text-[10px]">
                               {alert.commit_sha}
                             </span>
                           )}

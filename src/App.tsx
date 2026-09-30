@@ -216,19 +216,19 @@ export const App: React.FC = () => {
               
               {/* Dashboard Title & Subtitle */}
               <div className="mb-6 pb-4 border-b border-[var(--border-color)]">
-                <h1 className="text-3xl font-extrabold text-[var(--text-primary)] tracking-tight">
+                <h1 className="text-3xl font-extrabold tracking-tight text-[var(--text-primary)]">
                   Dashboard
                 </h1>
-                <p className="text-sm text-[var(--text-secondary)] mt-1 font-normal">
+                <p className="text-sm font-normal text-[var(--text-secondary)] mt-1">
                   Real-time pipeline health, GitHub action runs, and automated telemetry metrics.
                 </p>
               </div>
 
               {/* 3-Column Layout: Col 1 Repo Card (2.2fr) | Col 2 (3 Small Cards 1fr) | Col 3 (3 Small Cards 1fr) */}
-              <div className="dashboard-3col-kpi-grid">
+              <div className="dashboard-3col-kpi-grid items-stretch h-full">
                 
                 {/* Column 1: Repo Card */}
-                <div className="col-repo-card">
+                <div className="col-repo-card h-full">
                   <RepoGrid
                     repositories={filteredRepos}
                     recentRuns={workflowRuns}
