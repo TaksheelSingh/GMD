@@ -216,14 +216,7 @@ The footer must sit anchored at the **very bottom of the workspace** (`mt-auto`)
 
 ---
 
-## 8. Development Port & Environment Rule
-
-- **Vite Port**: Development server port set to **`3030`** (or custom non-3000 port) in `vite.config.js`.
-- **Express Port**: Backend server runs on `5000` (or `PORT` environment variable).
-
----
-
-## 9. Comprehensive Audit Checklist for Future Dashboards
+## 8. Comprehensive Audit Checklist for Future Dashboards
 
 - [ ] Left sidebar width is `240px` and text-only (no logos/emojis).
 - [ ] Theme toggle button is placed directly beside brand name (`watcher.`).
