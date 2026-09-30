@@ -86,11 +86,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <div className="text-[10px] text-[var(--text-secondary)] mt-0.5">Watcher User</div>
           </div>
         </div>
-
-        {/* Solid Live Indicator Dot */}
-        <div className="pr-1 flex items-center gap-1">
-          <span className={`w-2.5 h-2.5 rounded-full ${wsConnected ? 'bg-[#30D158]' : 'bg-[#FF9F0A]'}`} />
-        </div>
       </div>
 
     </aside>
