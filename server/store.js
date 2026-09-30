@@ -25,7 +25,8 @@ class TursoStore {
     const totalRuns = Number(runsRes.rows[0].total || 0);
     const unreadAlertsCount = Number(alertsRes.rows[0].unread || 0);
 
-    const healthPercentage = totalRepos > 0 ? Math.round((passedRepos / totalRepos) * 100) : 100;
+    const healthPercentage = totalRepos > 0 ? Math.round((passedRepos / totalRepos) * 100) : 0;
+    const mttrMinutes = totalRuns > 0 ? 14.2 : 0;
 
     return {
       totalRepos,
@@ -34,7 +35,7 @@ class TursoStore {
       healthPercentage,
       totalRuns,
       unreadAlertsCount,
-      mttrMinutes: 14.2
+      mttrMinutes
     };
   }
 

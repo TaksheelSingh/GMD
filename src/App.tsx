@@ -14,10 +14,10 @@ export const App: React.FC = () => {
     totalRepos: 0,
     passedRepos: 0,
     failedRepos: 0,
-    healthPercentage: 100,
+    healthPercentage: 0,
     totalRuns: 0,
     unreadAlertsCount: 0,
-    mttrMinutes: 14.2
+    mttrMinutes: 0
   });
 
   const [wsConnected, setWsConnected] = useState<boolean>(false);

@@ -15,7 +15,7 @@ export const KpiCardGrid: React.FC<KpiCardGridProps> = ({ metrics }) => {
         <div className="kpi-hover-card flex-1">
           <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-1">
             <span className="w-2.5 h-2.5 rounded-full bg-[#30D158]" />
-            <span>PASS RATE &bull; ORG HEALTH</span>
+            <span>PASS RATE</span>
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-extrabold text-[var(--text-primary)]">{metrics.healthPercentage}%</span>
@@ -31,7 +31,7 @@ export const KpiCardGrid: React.FC<KpiCardGridProps> = ({ metrics }) => {
         <div className="kpi-hover-card flex-1 border-[#FF453A]/30 bg-[#FF453A]/5">
           <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#FF453A] mb-1">
             <span className="w-2.5 h-2.5 rounded-full bg-[#FF453A] live-dot-blinking" />
-            <span>BROKEN REPOS &bull; FAILING</span>
+            <span>BROKEN REPOS</span>
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-extrabold text-[#FF453A]">{metrics.failedRepos}</span>
@@ -47,7 +47,7 @@ export const KpiCardGrid: React.FC<KpiCardGridProps> = ({ metrics }) => {
         <div className="kpi-hover-card flex-1">
           <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-1">
             <span className="w-2.5 h-2.5 rounded-full bg-[#0A84FF]" />
-            <span>TOTAL RUNS &bull; TELEMETRY</span>
+            <span>TOTAL RUNS</span>
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-extrabold text-[var(--text-primary)]">{metrics.totalRuns}</span>
@@ -68,7 +68,7 @@ export const KpiCardGrid: React.FC<KpiCardGridProps> = ({ metrics }) => {
         <div className="kpi-hover-card flex-1">
           <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-1">
             <span className="w-2.5 h-2.5 rounded-full bg-[#FF9F0A]" />
-            <span>RECOVERY MTTR &bull; LATENCY</span>
+            <span>RECOVERY MTTR</span>
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-extrabold text-[#FF9F0A]">{metrics.mttrMinutes}m</span>
@@ -84,7 +84,7 @@ export const KpiCardGrid: React.FC<KpiCardGridProps> = ({ metrics }) => {
         <div className="kpi-hover-card flex-1">
           <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-1">
             <span className="w-2.5 h-2.5 rounded-full bg-[#BF5AF2]" />
-            <span>UNREAD ALERTS &bull; SITE</span>
+            <span>UNREAD ALERTS</span>
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-extrabold text-[var(--text-primary)]">{metrics.unreadAlertsCount}</span>
@@ -100,7 +100,7 @@ export const KpiCardGrid: React.FC<KpiCardGridProps> = ({ metrics }) => {
         <div className="kpi-hover-card flex-1">
           <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-1">
             <span className="w-2.5 h-2.5 rounded-full bg-[#30D158]" />
-            <span>ACTIVE REPOS &bull; MONITORED</span>
+            <span>ACTIVE REPOS</span>
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-extrabold text-[var(--text-primary)]">{metrics.totalRepos}</span>
