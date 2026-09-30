@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------------------------------------------
+   Flawless Dark & Light Mode Theme Variables (Fully Persistent)
+   ------------------------------------------------------------- */
+:root, .dark {
+  --bg-app: #000000;
+  --bg-sidebar: #000000;
+  --bg-card: #0a0a0c;
+  --bg-card-inner: #161618;
+  --bg-danger-subtle: rgba(255, 69, 58, 0.12);
+  --border-color: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.25);
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent-blue: #0a84ff;
+  --pill-active-bg: #161618;
+  --pill-active-text: #0a84ff;
+  --badge-bg: #111113;
+  --table-hover: rgba(255, 255, 255, 0.05);
+}
+
+.light {
+  --bg-app: #f8fafc;
+  --bg-sidebar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-inner: #f1f5f9;
+  --bg-danger-subtle: #fef2f2;
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent-blue: #0284c7;
+  --pill-active-bg: #ffffff;
+  --pill-active-text: #059669;
+  --badge-bg: #f1f5f9;
+  --table-hover: #f1f5f9;
+}
+
+@layer base {
+  html, body, #root {
+    background-color: var(--bg-app) !important;
+    color: var(--text-primary) !important;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.011em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* Sidebar Styling */
+aside.sidebar {
+  background-color: var(--bg-sidebar) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+@media (min-width: 769px) {
+  aside.sidebar {
+    width: 240px;
+    padding: 24px 18px;
+    flex-shrink: 0;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    border-right-width: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .main-workspace {
+    width: calc(100% - 240px);
+    padding: 24px;
+    flex: 1 1 auto;
+    background-color: var(--bg-app);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  aside.sidebar {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    padding: 14px 16px;
+    border-bottom-width: 1px;
+  }
+  .main-workspace {
+    width: 100%;
+    padding: 14px 10px;
+    background-color: var(--bg-app);
+  }
+}
+
+/* -------------------------------------------------------------
+   Sidebar Nav Pill Animation (matching video 2026-09-30 151309.mp4)
+   ------------------------------------------------------------- */
+.sidebar-nav-pill {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: var(--text-secondary);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              background-color 0.2s ease,
+              color 0.2s ease;
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Hover state for inactive pills - smooth lift & soft drop shadow card */
+.sidebar-nav-pill:not(.active):hover {
+  background-color: var(--bg-card-inner);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.25), 0 2px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.light .sidebar-nav-pill:not(.active):hover {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+  color: #0f172a;
+  box-shadow: 0 6px 16px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+}
+
+/* Active State pill */
+.sidebar-nav-pill.active {
+  background-color: var(--bg-card-inner);
+  border-color: var(--border-hover);
+  color: var(--pill-active-text);
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.light .sidebar-nav-pill.active {
+  background-color: #ffffff;
+  border-color: #e2e8f0;
+  color: #059669;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+/* 3-Column Grid */
+.dashboard-3col-kpi-grid {
+  display: grid;
+  width: 100%;
+}
+
+@media (min-width: 1101px) {
+  .dashboard-3col-kpi-grid {
+    grid-template-columns: 2.2fr 1fr 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .dashboard-3col-kpi-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .col-repo-card {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-3col-kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .col-repo-card {
+    grid-column: span 1;
+  }
+}
+
+/* Hover Effect for 6 KPI Cards */
+.kpi-hover-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 16px 18px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.kpi-hover-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.35), 0 4px 10px -2px rgba(0, 0, 0, 0.2);
+  border-color: var(--border-hover);
+}
+
+.light .kpi-hover-card:hover {
+  box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.06);
+  border-color: #cbd5e1;
+}
+
+/* Theme Adaptive Cards */
+.theme-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  border-radius: 18px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-card:hover {
+  border-color: var(--border-hover) !important;
+}
+
+.theme-card-inner {
+  background-color: var(--bg-card-inner) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Bottom Left User Badge */
+.bottom-status-badge {
+  background-color: var(--badge-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 9999px;
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+}
+
+.bottom-status-badge:hover {
+  border-color: var(--border-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Table Row Hover */
+.table-row-hover:hover {
+  background-color: var(--table-hover) !important;
+}
+
+/* Blinking Indicator Dot */
+@keyframes liveBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.9); }
+}
+
+.live-dot-blinking {
+  animation: liveBlink 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}

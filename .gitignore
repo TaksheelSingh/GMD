@@ -1,0 +1,45 @@
+# Dependency directories
+node_modules/
+
+# Production build outputs
+dist/
+dist-ssr/
+build/
+*.local
+
+# Environment variables & secrets (CRITICAL FOR PUBLIC REPOS)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Local SQLite databases & data dumps
+server/gmd.db
+server/gmd.db-journal
+server/gmd.db-shm
+server/gmd.db-wal
+server/db_data.json
+*.db
+*.sqlite
+*.sqlite3
+
+# Log files & debug outputs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# System & IDE files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
