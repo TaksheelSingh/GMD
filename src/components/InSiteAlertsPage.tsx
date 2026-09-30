@@ -101,7 +101,7 @@ export const InSiteAlertsPage: React.FC<InSiteAlertsPageProps> = ({
                           }`}
                           title={isFailure ? 'Build Failure' : (isRecovery ? 'Recovered' : 'System Alert')}
                         >
-                          <span className={`w-2.5 h-2.5 rounded-full live-dot-blinking ${
+                          <span className={`w-2.5 h-2.5 rounded-full ${
                             isFailure 
                               ? 'bg-[#FF453A]' 
                               : (isRecovery ? 'bg-[#30D158]' : 'bg-[#0A84FF]')

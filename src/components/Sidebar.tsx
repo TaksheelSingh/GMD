@@ -87,9 +87,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
         </div>
 
-        {/* Blinking Live Indicator Dot */}
+        {/* Solid Live Indicator Dot */}
         <div className="pr-1 flex items-center gap-1">
-          <span className={`w-2.5 h-2.5 rounded-full ${wsConnected ? 'bg-[#30D158] live-dot-blinking' : 'bg-[#FF9F0A]'}`} />
+          <span className={`w-2.5 h-2.5 rounded-full ${wsConnected ? 'bg-[#30D158]' : 'bg-[#FF9F0A]'}`} />
         </div>
       </div>
 

@@ -262,10 +262,7 @@ aside.sidebar {
   background-color: var(--table-hover) !important;
 }
 
-/* Solid Indicator Dot */
-.live-dot-blinking {
-  /* No animation */
-}
+
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {

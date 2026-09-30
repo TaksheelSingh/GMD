@@ -30,7 +30,7 @@ export const KpiCardGrid: React.FC<KpiCardGridProps> = ({ metrics }) => {
         {/* Card 2: Broken Repos */}
         <div className="kpi-hover-card flex-1 border-[#FF453A]/30 bg-[#FF453A]/5">
           <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#FF453A] mb-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#FF453A] live-dot-blinking" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#FF453A]" />
             <span>BROKEN REPOS</span>
           </div>
           <div className="flex items-baseline gap-2">

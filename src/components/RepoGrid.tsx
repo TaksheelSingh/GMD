@@ -118,7 +118,7 @@ export const RepoGrid: React.FC<RepoGridProps> = ({
                           }`}
                           title={isFailed ? 'Status: Failed' : 'Status: Passed'}
                         >
-                          <span className={`w-2.5 h-2.5 rounded-full live-dot-blinking ${
+                          <span className={`w-2.5 h-2.5 rounded-full ${
                             isFailed ? 'bg-[#FF453A]' : 'bg-[#30D158]'
                           }`} />
                         </span>

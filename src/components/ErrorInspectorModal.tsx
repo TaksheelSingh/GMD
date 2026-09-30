@@ -43,7 +43,7 @@ export const ErrorInspectorModal: React.FC<ErrorInspectorModalProps> = ({ run, o
               <span className={`inline-flex items-center justify-center p-1.5 rounded-full ${
                 isFailed ? 'bg-[#FF453A]/20 border border-[#FF453A]/30' : 'bg-[#30D158]/20 border border-[#30D158]/30'
               }`} title={isFailed ? 'Failed' : 'Passed'}>
-                <span className={`w-2.5 h-2.5 rounded-full live-dot-blinking ${isFailed ? 'bg-[#FF453A]' : 'bg-[#30D158]'}`} />
+                <span className={`w-2.5 h-2.5 rounded-full ${isFailed ? 'bg-[#FF453A]' : 'bg-[#30D158]'}`} />
               </span>
 
               <span className="font-mono text-sm font-semibold text-white">{run.repository}</span>
