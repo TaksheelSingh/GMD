@@ -27,18 +27,18 @@ export const InSiteAlertsPage: React.FC<InSiteAlertsPageProps> = ({
   return (
     <div className="space-y-6">
       
-      {/* Page Header */}
-      <div className="flex items-center justify-between pb-4 border-b border-[var(--border-color)]">
+      {/* Page Header (Matching Dashboard Header Architecture) */}
+      <div className="flex items-center justify-between mb-6 pb-4 border-b border-[var(--border-color)]">
         <div>
-          <h2 className="text-xl font-bold text-[var(--text-primary)] tracking-tight flex items-center gap-3">
+          <h1 className="text-3xl font-extrabold text-[var(--text-primary)] tracking-tight flex items-center gap-3">
             <span>In-Site Telemetry Alerts</span>
             {unreadCount > 0 && (
               <span className="text-xs bg-[#FF453A] text-white font-bold px-2.5 py-0.5 rounded-full">
                 {unreadCount} Unread
               </span>
             )}
-          </h2>
-          <p className="text-xs text-[var(--text-secondary)] mt-1">
+          </h1>
+          <p className="text-sm text-[var(--text-secondary)] mt-1 font-normal">
             Site-only live operational alert feed (No external Slack or email dependencies)
           </p>
         </div>
@@ -46,7 +46,7 @@ export const InSiteAlertsPage: React.FC<InSiteAlertsPageProps> = ({
         {unreadCount > 0 && (
           <button
             onClick={onMarkAllAsRead}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 border border-[var(--border-color)] text-xs font-semibold text-[var(--text-primary)] transition-all"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[var(--bg-card-inner)] hover:border-[var(--border-hover)] border border-[var(--border-color)] text-xs font-semibold text-[var(--text-primary)] transition-all cursor-pointer"
           >
             <CheckCheck className="w-4 h-4 text-[#30D158]" />
             <span>Mark All as Read</span>
