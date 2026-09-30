@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Sun, Moon } from 'lucide-react';
 import { Repository, WorkflowRun, SiteAlert, MetricsSummary } from './types';
 import { Sidebar } from './components/Sidebar';
 import { RepoGrid } from './components/RepoGrid';
@@ -40,6 +41,16 @@ export const App: React.FC = () => {
       root.classList.remove('light');
     }
   }, [theme]);
+
+  const handleToggleTheme = () => {
+    const root = document.documentElement;
+    root.classList.add('theme-transitioning');
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    setTimeout(() => {
+      root.classList.remove('theme-transitioning');
+    }, 100);
+  };
 
   const playAlertSound = (type: 'failure' | 'recovery') => {
     if (!soundEnabled) return;
@@ -196,6 +207,47 @@ export const App: React.FC = () => {
   return (
     <div className={`min-h-screen flex flex-col md:flex-row font-sans selection:bg-[#0A84FF] selection:text-white ${theme}`}>
       
+      {/* Mobile Top Header */}
+      <header className="mobile-header">
+        <div className="font-extrabold text-xl tracking-tight text-[var(--text-primary)]">
+          watcher<span className="text-[#0A84FF]">.</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setCurrentView('dashboard')}
+            className={`px-3 py-1 rounded-full text-xs font-bold transition-all border ${
+              currentView === 'dashboard'
+                ? 'bg-[var(--bg-card-inner)] text-[#0A84FF] border-[var(--border-hover)]'
+                : 'text-[var(--text-secondary)] border-transparent'
+            }`}
+          >
+            Dash
+          </button>
+          <button
+            onClick={() => setCurrentView('alerts')}
+            className={`px-3 py-1 rounded-full text-xs font-bold transition-all border flex items-center gap-1 ${
+              currentView === 'alerts'
+                ? 'bg-[var(--bg-card-inner)] text-[#0A84FF] border-[var(--border-hover)]'
+                : 'text-[var(--text-secondary)] border-transparent'
+            }`}
+          >
+            <span>Alerts</span>
+            {metrics.unreadAlertsCount > 0 && (
+              <span className="bg-[#FF453A] text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full">
+                {metrics.unreadAlertsCount}
+              </span>
+            )}
+          </button>
+          <button
+            onClick={handleToggleTheme}
+            className="p-1.5 rounded-xl bg-[var(--bg-card-inner)] border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all cursor-pointer"
+            title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
+          >
+            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-500" />}
+          </button>
+        </div>
+      </header>
+
       {/* 1. Left Navigation Sidebar */}
       <Sidebar
         wsConnected={wsConnected}
@@ -203,7 +255,7 @@ export const App: React.FC = () => {
         theme={theme}
         currentView={currentView}
         onSelectView={(v) => setCurrentView(v)}
-        onToggleTheme={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        onToggleTheme={handleToggleTheme}
       />
 
       {/* 2. Main Workspace */}
