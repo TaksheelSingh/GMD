@@ -215,12 +215,12 @@ export const App: React.FC = () => {
             <div className="space-y-6">
               
               {/* Dashboard Title & Subtitle */}
-              <div className="mb-6">
+              <div className="mb-6 pb-4 border-b border-[var(--border-color)]">
                 <h1 className="text-3xl font-extrabold text-[var(--text-primary)] tracking-tight">
                   Dashboard
                 </h1>
-                <p className="text-xs text-[var(--text-secondary)] mt-1 font-normal">
-                  Real-time leave balances, half-day allocations, and monthly attendance tracking.
+                <p className="text-sm text-[var(--text-secondary)] mt-1 font-normal">
+                  Real-time pipeline health, GitHub action runs, and automated telemetry metrics.
                 </p>
               </div>
 
